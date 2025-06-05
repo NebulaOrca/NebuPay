@@ -1,0 +1,242 @@
+<html class="scroll-smooth" lang="id">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>
+   NEBULA Payment Portal
+  </title>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&amp;display=swap" rel="stylesheet"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <style>
+   body {
+      font-family: 'Outfit', sans-serif;
+      background-color: #0f172a;
+      overflow-x: hidden;
+    }
+    .shine {
+      position: fixed;
+      top: -150%;
+      left: -150%;
+      width: 400%;
+      height: 400%;
+      background: linear-gradient(135deg, rgba(255,255,255,0.15), rgba(255,255,255,0));
+      transform: rotate(45deg);
+      animation: shine 5s linear infinite;
+      pointer-events: none;
+      z-index: 0;
+      mix-blend-mode: screen;
+    }
+    @keyframes shine {
+      0% { transform: translate(-100%, -100%) rotate(45deg); }
+      100% { transform: translate(100%, 100%) rotate(45deg); }
+    }
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #1e293b;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #6366f1;
+      border-radius: 10px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #4f46e5;
+    }
+    button.collapsible > svg {
+      transition: transform 0.3s ease;
+    }
+    button.collapsible.active > svg {
+      transform: rotate(90deg);
+    }
+  </style>
+ </head>
+ <body class="relative min-h-screen bg-gradient-to-b from-slate-900 via-indigo-900 to-slate-900 text-white">
+  <div class="shine"></div>
+  <section class="fixed inset-0 bg-gradient-to-br from-indigo-900 via-purple-900 to-indigo-900 bg-opacity-95 flex flex-col justify-center items-center px-6 text-center z-50 select-none" id="welcome-message">
+   <h1 class="text-5xl md:text-6xl font-extrabold mb-4 tracking-wide drop-shadow-lg animate-fadeInDown">
+    Hey, I am
+    <span class="text-indigo-400">NEBULA</span>
+   </h1>
+   <p class="text-lg md:text-xl text-indigo-200 mb-6 max-w-xl animate-fadeInUp">
+    Selamat Datang di Portal Pembayaran
+    <span class="font-semibold text-indigo-400">NEBULA</span>. Pastikan kamu memilih metode pembayaran yang tepat!
+   </p>
+   <button class="inline-flex items-center gap-3 bg-indigo-500 hover:bg-indigo-600 active:bg-indigo-700 transition rounded-lg px-8 py-3 font-semibold text-white shadow-lg shadow-indigo-700/50 focus:outline-none focus:ring-4 focus:ring-indigo-400 animate-pulse" id="go-to-payment">
+    <i class="fas fa-credit-card"></i>
+    Mulai Pembayaran
+   </button>
+  </section>
+  <main class="hidden max-w-3xl mx-auto px-6 py-12 relative z-10" id="main-content">
+   <h2 class="text-4xl font-extrabold mb-3 text-center text-indigo-400 drop-shadow-md">
+    Metode Pembayaran NEBULA
+   </h2>
+   <p class="text-center text-indigo-200 mb-10 text-lg md:text-xl">
+    Pilih salah satu metode pembayaran di bawah ini dengan mudah dan aman.
+   </p>
+   <div class="flex justify-center mb-8">
+    <div class="relative group cursor-pointer rounded-xl shadow-2xl shadow-indigo-700/50 overflow-hidden w-56 h-56 md:w-64 md:h-64 transition-transform duration-300 hover:scale-105" onclick="zoomQR()">
+     <img alt="QR Code pembayaran digital berwarna ungu dengan logo KAI di tengah, latar belakang putih bersih" class="w-full h-full object-contain rounded-xl" height="256" src="https://storage.googleapis.com/a1aa/image/3e9ef748-c55b-4269-c348-3928c582cb2b.jpg" width="256"/>
+     <div class="absolute inset-0 bg-gradient-to-t from-indigo-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-xl flex items-end justify-center p-4">
+      <p class="text-white font-semibold text-center text-sm md:text-base drop-shadow-lg">Scan QR Code dengan aplikasi pembayaran Anda</p>
+     </div>
+    </div>
+   </div>
+   <section class="bg-indigo-900/70 rounded-2xl p-6 shadow-lg shadow-indigo-800/60 max-w-md mx-auto">
+    <button aria-expanded="false" class="collapsible flex justify-between items-center w-full bg-gradient-to-r from-indigo-500 via-purple-600 to-indigo-500 bg-size-200 bg-pos-0 hover:bg-pos-100 transition-all duration-400 text-white font-semibold rounded-lg px-5 py-3 mb-3 focus:outline-none focus:ring-4 focus:ring-indigo-400">
+     <span><i class="fas fa-wallet mr-3"></i>E-WALLET</span>
+     <svg aria-hidden="true" class="w-5 h-5 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+    </button>
+    <div class="content max-h-0 overflow-hidden transition-max-height duration-300 text-indigo-200 text-sm md:text-base px-2 mb-4">
+     <p><span class="font-semibold text-indigo-300">DANA:</span>082375310984</p>
+     <p><span class="font-semibold text-indigo-300">OVO:</span>082375310984</p>
+     <p><span class="font-semibold text-indigo-300">GOPAY:</span>082375310984</p>
+    </div>
+    <button aria-expanded="false" class="collapsible flex justify-between items-center w-full bg-gradient-to-r from-indigo-500 via-purple-600 to-indigo-500 bg-size-200 bg-pos-0 hover:bg-pos-100 transition-all duration-400 text-white font-semibold rounded-lg px-5 py-3 mb-3 focus:outline-none focus:ring-4 focus:ring-indigo-400">
+     <span><i class="fas fa-university mr-3"></i>Transfer Bank</span>
+     <svg aria-hidden="true" class="w-5 h-5 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+    </button>
+    <div class="content max-h-0 overflow-hidden transition-max-height duration-300 text-indigo-200 text-sm md:text-base px-2">
+     <p><span class="font-semibold text-indigo-300">BCA:</span>Tidak tersedia</p>
+     <p><span class="font-semibold text-indigo-300">Mandiri:</span>Tidak tersedia</p>
+    </div>
+   </section>
+   <nav class="mt-12 flex flex-wrap justify-center gap-4">
+    <a class="btn-link inline-flex items-center gap-2 bg-gradient-to-r from-indigo-500 via-purple-600 to-indigo-500 text-white font-semibold rounded-lg px-6 py-3 shadow-lg shadow-indigo-700/60 hover:scale-105 transition-transform" href="https://wa.me/6282375310984" rel="noopener" target="_blank"><i class="fab fa-whatsapp"></i>WhatsApp</a>
+    <a class="btn-link inline-flex items-center gap-2 bg-gradient-to-r from-indigo-500 via-purple-600 to-indigo-500 text-white font-semibold rounded-lg px-6 py-3 shadow-lg shadow-indigo-700/60 hover:scale-105 transition-transform" href="https://t.me/nebula" rel="noopener" target="_blank"><i class="fab fa-telegram-plane"></i>Telegram</a>
+    <a class="btn-link inline-flex items-center gap-2 bg-gradient-to-r from-indigo-500 via-purple-600 to-indigo-500 text-white font-semibold rounded-lg px-6 py-3 shadow-lg shadow-indigo-700/60 hover:scale-105 transition-transform" href="https://www.youtube.comple" rel="noopener" target="_blank"><i class="fab fa-youtube"></i>YouTube</a>
+    <a class="btn-link inline-flex items-center gap-2 bg-gradient-to-r from-indigo-500 via-purple-600 to-indigo-500 text-white font-semibold rounded-lg px-6 py-3 shadow-lg shadow-indigo-700/60 hover:scale-105 transition-transform" href="" rel="noopener" target="_blank"><i class="fas fa-bullhorn"></i>Channel WhatsApp</a>
+    <a class="btn-link inline-flex items-center gap-2 bg-gradient-to-r from-indigo-500 via-purple-600 to-indigo-500 text-white font-semibold rounded-lg px-6 py-3 shadow-lg shadow-indigo-700/60 hover:scale-105 transition-transform" href="payment.html"><i class="fas fa-arrow-left"></i>Kembali</a>
+    <a class="btn-link inline-flex items-center gap-2 bg-gradient-to-r from-indigo-500 via-purple-600 to-indigo-500 text-white font-semibold rounded-lg px-6 py-3 shadow-lg shadow-indigo-700/60 hover:scale-105 transition-transform" href="" rel="noopener" target="_blank"><i class="fas fa-comments"></i>Channel Testimoni</a>
+   </nav>
+  </main>
+  <div class="fixed inset-0 bg-black bg-opacity-90 backdrop-blur-sm flex items-center justify-center p-6 z-50 hidden cursor-zoom-out" id="qrOverlay" onclick="closeZoom()">
+   <img alt="QR Code pembayaran digital berwarna ungu dengan logo NEBULA di tengah, latar belakang putih bersih, diperbesar" class="max-w-full max-h-full rounded-3xl shadow-2xl shadow-indigo-900/80" height="512" id="qrZoomImg" src="https://storage.googleapis.com/a1aa/image/808553dc-5d93-48c8-60c4-3891dedf959b.jpg" width="512"/>
+  </div>
+  <canvas class="fixed top-0 left-0 w-screen h-screen pointer-events-none -z-10" id="particles"></canvas>
+  <canvas class="fixed top-0 left-0 w-screen h-screen pointer-events-none -z-10" id="snow"></canvas>
+  <script>
+   const welcomeMessage = document.getElementById('welcome-message');
+    const mainContent = document.getElementById('main-content');
+    const goToPaymentBtn = document.getElementById('go-to-payment');goToPaymentBtn.addEventListener('click', () => {
+  welcomeMessage.classList.add('opacity-0', 'pointer-events-none');
+  setTimeout(() => {
+    welcomeMessage.style.display = 'none';
+    mainContent.classList.remove('hidden');
+    mainContent.classList.add('opacity-100');
+  }, 600);
+});
+
+document.querySelectorAll('button.collapsible').forEach(btn => {
+  btn.addEventListener('click', () => {
+    btn.classList.toggle('active');
+    const content = btn.nextElementSibling;
+    if (content.style.maxHeight) {
+      content.style.maxHeight = null;
+      btn.setAttribute('aria-expanded', 'false');
+    } else {
+      content.style.maxHeight = content.scrollHeight + "px";
+      btn.setAttribute('aria-expanded', 'true');
+    }
+  });
+});
+
+const qrOverlay = document.getElementById('qrOverlay');
+const qrZoomImg = document.getElementById('qrZoomImg');
+const qrImgSrc = "https://placehold.co/512x512/png?text=QR+Code+Pembayaran+KAI";
+
+function zoomQR() {
+  qrZoomImg.src = qrImgSrc;
+  qrOverlay.classList.remove('hidden');
+  document.body.style.overflow = 'hidden';
+}
+function closeZoom() {
+  qrOverlay.classList.add('hidden');
+  document.body.style.overflow = '';
+}
+
+const canvas = document.getElementById("particles");
+const ctx = canvas.getContext("2d");
+let width = window.innerWidth;
+let height = window.innerHeight;
+canvas.width = width;
+canvas.height = height;
+
+const particles = [];
+const particleCount = 80;
+
+for (let i = 0; i < particleCount; i++) {
+  particles.push({ x: Math.random() * width, y: Math.random() * height, size: Math.random() * 2 + 1, color: `hsl(${Math.random() * 360}, 80%, 70%)`, speedX: Math.random() * 0.4 - 0.2, speedY: Math.random() * 0.4 - 0.2 });
+}
+
+function drawParticles() {
+  ctx.clearRect(0, 0, width, height);
+  particles.forEach(p => {
+    ctx.fillStyle = p.color;
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+    ctx.fill();
+    p.x += p.speedX;
+    p.y += p.speedY;
+    if (p.x < 0 || p.x > width) p.speedX *= -1;
+    if (p.y < 0 || p.y > height) p.speedY *= -1;
+  });
+  requestAnimationFrame(drawParticles);
+}
+drawParticles();
+
+const snowCanvas = document.getElementById("snow");
+const snowCtx = snowCanvas.getContext("2d");
+snowCanvas.width = width;
+snowCanvas.height = height;
+
+const snowflakes = [];
+const snowCount = 100;
+
+for (let i = 0; i < snowCount; i++) {
+  snowflakes.push({ x: Math.random() * width, y: Math.random() * height, radius: Math.random() * 3 + 2, speedY: Math.random() * 1 + 1.5, speedX: Math.random() * 0.5 - 0.25 });
+}
+
+function drawSnow() {
+  snowCtx.clearRect(0, 0, width, height);
+  snowCtx.fillStyle = "rgba(255, 255, 255, 0.8)";
+  snowflakes.forEach(flake => {
+    snowCtx.beginPath();
+    snowCtx.arc(flake.x, flake.y, flake.radius, 0, Math.PI * 2);
+    snowCtx.fill();
+    flake.y += flake.speedY;
+    flake.x += flake.speedX;
+    if (flake.y > height) { flake.y = -flake.radius; flake.x = Math.random() * width; }
+    if (flake.x > width) { flake.x = 0; } else if (flake.x < 0) { flake.x = width; }
+  });
+  requestAnimationFrame(drawSnow);
+}
+drawSnow();
+
+window.addEventListener('resize', () => {
+  width = window.innerWidth;
+  height = window.innerHeight;
+  canvas.width = width;
+  canvas.height = height;
+  snowCanvas.width = width;
+  snowCanvas.height = height;
+});
+
+  </script>
+  <style>
+    @keyframes fadeInDown {
+      0% { opacity: 0; transform: translateY(-30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fadeInDown { animation: fadeInDown 1s ease forwards; }
+    .animate-fadeInUp { animation: fadeInUp 1s ease forwards; }
+    //chanell:https://whatsapp.com/channel/0029VanrndJICVfcrjFr3x2R//
+  </style>
+ </body>
+</html>
